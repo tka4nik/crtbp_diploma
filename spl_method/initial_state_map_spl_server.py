@@ -89,7 +89,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # load zero-velocity line (ZVL) points
-    data = np.load('zvl_4_sparse.npy')[74:]
+    data = np.load('zvl_4_sparse.npy')
 
     # set up CRTBP model and length scale
     model = op.crtbp3_model('Earth-Moon (default)', integrator=op.dopri5_integrator(), stm=True)

@@ -14,9 +14,9 @@ Former is easier to work with and is the output of orbits calculation methods,
     the latter is easier to visualize (and is a numpy array)
 """
 
-def icm_contour_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
+def ism_contour_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
     """
-    Visualizes x-z Initial Conditions Map data, of type "contour_data" .
+    Visualizes x-z Initial States Map data, of type "contour_data" .
     :param data: list of type "contour_data"
     :param l1: boolean, True - l1, False - l2
     :param moon: boolean, True - Moon, False - Earth
@@ -52,12 +52,12 @@ def icm_contour_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=Tru
             scale_d = 384.4  # thousands kms, distance from Earth to Moon
             scale_v = 1.0251
             ax.set_xlabel(r"x, $10^3$ км")
-            ax.set_ylabel(r"y, $10^3$ км")
+            ax.set_ylabel(r"z, $10^3$ км")
         else:
             scale_d = 151.4  # millions kms, distance from Earth to Sun
             scale_v = 1.0251
             ax.set_xlabel(r"x, $10^6$ км")
-            ax.set_ylabel(r"y, $10^6$ км")
+            ax.set_ylabel(r"z, $10^6$ км")
 
         km_formatter = FuncFormatter(lambda value, pos: f"{value * scale_d:.2f}")
         v_formatter = FuncFormatter(lambda value, v: f"{value * scale_v:.2f}")
@@ -73,7 +73,7 @@ def icm_contour_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=Tru
     else:
         cbar.set_label(r"$v_y$")
         ax.set_xlabel(r"x")
-        ax.set_ylabel(r"y")
+        ax.set_ylabel(r"z")
 
     ax.scatter(1, 0) # Massive object №2
     if moon:
@@ -91,9 +91,9 @@ def icm_contour_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=Tru
     return fig
 
 
-def icm_points_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
+def ism_points_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
     """
-    Visualizes x-z Initial Conditions Map data, of type "points_data" .
+    Visualizes x-z Initial States Map data, of type "points_data" .
     :param data: list of type "points_data"
     :param l1: boolean, True - l1, False - l2
     :param moon: boolean, True - Moon, False - Earth
@@ -122,12 +122,12 @@ def icm_points_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True
             scale_d = 384.4  # thousands kms, distance from Earth to Moon
             scale_v = 1.0251
             ax.set_xlabel(r"x, $10^3$ км")
-            ax.set_ylabel(r"y, $10^3$ км")
+            ax.set_ylabel(r"z, $10^3$ км")
         else:
             scale_d = 151.4  # millions kms, distance from Earth to Sun
             scale_v = 1.0251
             ax.set_xlabel(r"x, $10^6$ км")
-            ax.set_ylabel(r"y, $10^6$ км")
+            ax.set_ylabel(r"z, $10^6$ км")
 
         km_formatter = FuncFormatter(lambda value, pos: f"{value * scale_d:.2f}")
         v_formatter = FuncFormatter(lambda value, v: f"{value * scale_v:.2f}")
@@ -143,7 +143,7 @@ def icm_points_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True
     else:
         cbar.set_label(r"$v_y$")
         ax.set_xlabel(r"x")
-        ax.set_ylabel(r"y")
+        ax.set_ylabel(r"z")
 
     ax.scatter(1, 0)
     if moon:
@@ -161,11 +161,11 @@ def icm_points_visualizer(data, figsize_x=9, figsize_y=7, points_size=3, l1=True
     return fig
 
 
-def icm_contour_comparison(data_1, data_2, label_1="data_1", label_2="data_2", figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
+def ism_contour_comparison(data_1, data_2, label_1="data_1", label_2="data_2", figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
     """
-    Overlays two Initial Condition Maps (of datatype "contour_data") on a single matplotlib graph, for easier comparison
-    :param data_1: first icm map, of type "contour_data"
-    :param data_2: second icm map, of type "contour_data"
+    Overlays two Initial States Maps (of datatype "contour_data") on a single matplotlib graph, for easier comparison
+    :param data_1: first ism map, of type "contour_data"
+    :param data_2: second ism map, of type "contour_data"
     :param label_1: label of the first map
     :param label_2: label of the second map
     :return: matplotlib.pyplot.figure
@@ -202,11 +202,11 @@ def icm_contour_comparison(data_1, data_2, label_1="data_1", label_2="data_2", f
         if moon:
             scale_d = 384.4  # thousands kms, distance from Earth to Moon
             ax.set_xlabel(r"x, $10^3$ км")
-            ax.set_ylabel(r"y, $10^3$ км")
+            ax.set_ylabel(r"z, $10^3$ км")
         else:
             scale_d = 151.4  # millions kms, distance from Earth to Sun
             ax.set_xlabel(r"x, $10^6$ км")
-            ax.set_ylabel(r"y, $10^6$ км")
+            ax.set_ylabel(r"z, $10^6$ км")
 
         km_formatter = FuncFormatter(lambda value, pos: f"{value * scale_d:.2f}")
 
@@ -216,7 +216,7 @@ def icm_contour_comparison(data_1, data_2, label_1="data_1", label_2="data_2", f
 
     else:
         ax.set_xlabel(r"x")
-        ax.set_ylabel(r"y")
+        ax.set_ylabel(r"z")
 
     ax.scatter(1, 0)
     if moon:
@@ -236,9 +236,9 @@ def icm_contour_comparison(data_1, data_2, label_1="data_1", label_2="data_2", f
     return fig
 
 
-def icm_points_comparison(data_1, data_2, label_1="data_1", label_2="data_2", figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
+def ism_points_comparison(data_1, data_2, label_1="data_1", label_2="data_2", figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
     """
-    Overlays two Initial Conditions Maps (of datatype "points_data") on a single matplotlib graph, for easier comparison
+    Overlays two Initial States Maps (of datatype "points_data") on a single matplotlib graph, for easier comparison
     :param data_1: first icm map, of type "points_data"
     :param data_2: second icm map, of type "points_data"
     :param label_1: label of the first map
@@ -267,11 +267,11 @@ def icm_points_comparison(data_1, data_2, label_1="data_1", label_2="data_2", fi
         if moon:
             scale_d = 384.4  # thousands kms, distance from Earth to Moon
             ax.set_xlabel(r"x, $10^3$ км")
-            ax.set_ylabel(r"y, $10^3$ км")
+            ax.set_ylabel(r"z, $10^3$ км")
         else:
             scale_d = 151.4  # millions kms, distance from Earth to Sun
             ax.set_xlabel(r"x, $10^6$ км")
-            ax.set_ylabel(r"y, $10^6$ км")
+            ax.set_ylabel(r"z, $10^6$ км")
 
         km_formatter = FuncFormatter(lambda value, pos: f"{value * scale_d:.2f}")
 
@@ -282,7 +282,7 @@ def icm_points_comparison(data_1, data_2, label_1="data_1", label_2="data_2", fi
 
     else:
         ax.set_xlabel(r"x")
-        ax.set_ylabel(r"y")
+        ax.set_ylabel(r"z")
 
     ax.scatter(1, 0)
     if moon:
@@ -302,7 +302,7 @@ def icm_points_comparison(data_1, data_2, label_1="data_1", label_2="data_2", fi
     return fig
 
 
-def vcsm_contour_visuzalizer(data, show_fails=True, filter=False, figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
+def vcsm_contour_visuzalizer(data, show_fails=True, filter=False, filter_criteria=1e-6, figsize_x=9, figsize_y=7, points_size=3, l1=True, moon=True, convert_to_isu=False):
     """
     Visualizes Velocity Corrections Sum Map data for an icm map. typeof(data) is "contour_data".
     :param data: dv sum data, type="contour_data", [ [ [[x,y,z], dv_sum], [[x,y,z], dv_sum], ... ], ... ]
@@ -323,7 +323,7 @@ def vcsm_contour_visuzalizer(data, show_fails=True, filter=False, figsize_x=9, f
     data_points = np.array(data_points)
     data_points_surface = data_points
     if filter: # if flag, filter out points with dv_sum > 10^-6
-        data_points_surface = data_points[np.where(data_points[:, 3] <= 10**-6)]
+        data_points_surface = data_points[np.where(data_points[:, 3] <= filter_criteria)]
 
     # Plot configuring
     fig, ax = plt.subplots(figsize=(figsize_x, figsize_y))
@@ -344,11 +344,11 @@ def vcsm_contour_visuzalizer(data, show_fails=True, filter=False, figsize_x=9, f
         if moon:
             scale_d = 384.4  # thousands kms, distance from Earth to Moon
             ax.set_xlabel(r"x, $10^3$ км")
-            ax.set_ylabel(r"y, $10^3$ км")
+            ax.set_ylabel(r"z, $10^3$ км")
         else:
             scale_d = 151.4  # millions kms, distance from Earth to Sun
             ax.set_xlabel(r"x, $10^6$ км")
-            ax.set_ylabel(r"y, $10^6$ км")
+            ax.set_ylabel(r"z, $10^6$ км")
 
         km_formatter = FuncFormatter(lambda value, pos: f"{value * scale_d:.2f}")
 
@@ -358,7 +358,7 @@ def vcsm_contour_visuzalizer(data, show_fails=True, filter=False, figsize_x=9, f
 
     else:
         ax.set_xlabel(r"x")
-        ax.set_ylabel(r"y")
+        ax.set_ylabel(r"z")
 
     ax.scatter(1, 0)
     if moon:
@@ -375,35 +375,39 @@ def vcsm_contour_visuzalizer(data, show_fails=True, filter=False, figsize_x=9, f
 
     return fig
 
-def apply_vcsm_filter_to_icm_data(vcsm, data):
+def apply_vcsm_filter_to_ism_data(vcsm, ism, filter_criteria=1e-6):
     """
-    Applies Velocity Corrections Sum Map data to Initial Conditions Map.
+    Applies Velocity Corrections Sum Map data to Initial States Map.
     Only leaves points on the icm map which pass the condition of dv_sum <= 10^-6.
+
+    Works with cases when vcsm data was calculated for x last contour lines of ism data
+    (for example, ism data has 180 contour lines, but vcsm was calculated for the *last* 100 contour lines)
+    
     :param vcsm: vcsm data, format "contour_data"
-    :param data: icm data, format "contour_data"
+    :param ism: ism data, format "contour_data"
     :return: "contour_data" array.
     """
     filtered_contour_data = []
     index = 0
 
-    # Searches for the index of the vcsm inside data
-    # (for example, index=180 would mean that data[180:] contains vcsm data.
-    for i, line in enumerate(data):
+    # Searches for the index of the vcsm inside ism
+    # (for example, index=180 would mean that ism[180:] contains vcsm data.
+    for i, line in enumerate(ism):
         if len(line) == 0: #checks for empty contour lines
             continue
         if line[0] == vcsm[0][0][0]:
             index = i
             break
 
-    for line in data[:index]: # Append first index-1 contour lines to the output array. They are not filtered by definition.
+    for line in ism[:index]: # Append first index-1 contour lines to the output array. They are not filtered by definition.
         filtered_contour_data.append(np.array(line))
 
     # filtering
-    for line_vcsm, line_data in zip(vcsm, data[index:]):
+    for line_vcsm, line_data in zip(vcsm, ism[index:]):
         line_vcsm_np = np.array([[*point[0], point[1]] for point in line_vcsm]) # flatten and convert to numpy array
         line_data_np = np.array(line_data) # convert to numpy array
 
-        line_filtered = line_vcsm_np[np.where(line_vcsm_np[:, 3] > 10 ** -6)][:, :3] # filter dv_sum > 10^-6, outputing array without dv_sum data
+        line_filtered = line_vcsm_np[np.where(line_vcsm_np[:, 3] > filter_criteria)][:, :3] # filter dv_sum > 10^-6 (default), outputing array without dv_sum data
         matches = (line_data_np[:, None, :] == line_filtered[None, :, :]).all(axis=2).any(axis=1) # creating mask array, match if dv_sum > 10^-6
         filtered = line_data_np[~matches] # masking out unwanted data (~masked is "not masked", so it leaves only data with dv_sum <= 10^-6)
         filtered_contour_data.append(filtered)

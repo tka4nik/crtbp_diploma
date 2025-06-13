@@ -54,7 +54,7 @@ def generate_initial_state_map_with_sum_dv(model, contour_line_data, T):
             _ = impulse_correction.prop(0, initial_state, n)
         except (RuntimeError, ValueError) as e:
             print(f"    Failed to compute dv sum for state[{state}].")
-            return -1
+            return 10
 
         dv_norms = np.linalg.norm(impulse_correction.dvout[:, 3:6], axis=1)
         return np.sum(dv_norms)
