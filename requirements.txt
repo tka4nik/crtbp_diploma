@@ -57,7 +57,7 @@ notebook==7.2.2
 notebook_shim==0.2.4
 numba==0.60.0
 numpy==2.0.2
-orbipy==0.2.5
+-e git+ssh://git@bitbucket.org/tka4nik03/orbipy.git@00661b3e643df564274021e4eede1851f9e81e5a#egg=orbipy
 overrides==7.7.0
 packaging==24.1
 pandas==2.2.3
