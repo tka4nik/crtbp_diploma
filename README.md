@@ -44,6 +44,8 @@ Python 3.12
 Для работы метода поверхности вращения требуется установить модифицированную версию библиотеки [OrbiPy](https://bitbucket.org/tka4nik03/orbipy/src/bugfix/) (ветка `bugfix`):
 `pip install -e /<путь до репозитория>/orbipy`
 
+![ism_planes_post.png](./media/ism_planes_post.png)
+
 
 
 
